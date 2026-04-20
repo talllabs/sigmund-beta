@@ -1,1 +1,388 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Made Known Pictures | Brand USA</title>
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'Inter',sans-serif;
+background:#f7f7f5;
+color:#111;
+line-height:1.65;
+}
+a{text-decoration:none;color:inherit}
+
+/* PASSWORD */
+#password-gate{
+position:fixed;inset:0;background:#111;
+display:flex;align-items:center;justify-content:center;
+z-index:9999;
+}
+.gate-box{
+background:#fff;padding:50px;width:90%;max-width:430px;
+border-radius:10px;text-align:center;
+}
+.gate-logo{
+font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+color:#999;font-weight:700;margin-bottom:24px;
+}
+.gate-box h2{
+font-family:'Playfair Display',serif;
+font-size:34px;font-weight:400;margin-bottom:8px;
+}
+.gate-box p{color:#666;margin-bottom:24px}
+.gate-box input{
+width:100%;padding:14px;border:1px solid #ddd;
+margin-bottom:12px;
+}
+.gate-box button{
+width:100%;padding:14px;border:none;background:#000;color:#fff;
+font-weight:700;cursor:pointer;
+}
+.gate-error{display:none;color:red;margin-top:10px;font-size:13px}
+
+/* MAIN */
+#main-content{display:none}
+
+/* HERO */
+.hero{
+height:78vh;min-height:680px;position:relative;overflow:hidden;
+background:url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1800&q=80') center/cover no-repeat;
+}
+.hero:after{
+content:"";position:absolute;inset:0;
+background:linear-gradient(to right,rgba(0,0,0,.75),rgba(0,0,0,.35));
+}
+.hero-inner{
+position:relative;z-index:2;
+max-width:1200px;margin:auto;
+padding:220px 28px 80px;
+color:#fff;
+}
+.hero-logo{
+display:flex;align-items:center;gap:10px;
+font-size:12px;letter-spacing:.2em;
+text-transform:uppercase;font-weight:700;
+margin-bottom:30px;
+}
+.hero-logo img{height:34px}
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:72px;line-height:1.02;font-weight:400;
+max-width:800px;margin-bottom:18px;
+}
+.hero h1 em{font-style:italic}
+.hero p{
+font-size:20px;max-width:720px;opacity:.95;
+margin-bottom:26px;
+}
+.hero-btn{
+display:inline-block;background:#fff;color:#000;
+padding:14px 22px;font-weight:700;border-radius:4px;
+}
+
+/* CONTENT */
+.wrap{
+max-width:1080px;
+margin:auto;
+padding:70px 28px 90px;
+}
+.intro h2{
+font-family:'Playfair Display',serif;
+font-size:56px;font-weight:400;
+margin-bottom:12px;
+}
+.intro p{font-size:20px;color:#666}
+
+.divider{
+border:none;border-top:1px solid #e6e6e6;
+margin:55px 0;
+}
+
+.sample{
+position:relative;
+}
+
+.sample-label{
+display:inline-block;
+background:#111;color:#fff;
+font-size:11px;
+letter-spacing:.16em;
+text-transform:uppercase;
+padding:6px 10px;
+margin-bottom:18px;
+}
+
+.eyebrow{
+font-size:12px;
+letter-spacing:.22em;
+text-transform:uppercase;
+color:#999;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.sample h3{
+font-family:'Playfair Display',serif;
+font-size:40px;
+font-weight:400;
+margin-bottom:16px;
+line-height:1.15;
+}
+
+.sample p{
+color:#666;
+margin-bottom:14px;
+max-width:720px;
+}
+
+.note{
+border-left:2px solid #ddd;
+padding-left:16px;
+font-size:14px;
+color:#555;
+margin-top:18px;
+max-width:760px;
+}
+
+.video-single{margin-top:30px}
+
+.video-pair{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:24px;
+margin-top:30px;
+}
+
+.video-wrap iframe{
+width:100%;
+aspect-ratio:16/9;
+border:none;
+border-radius:4px;
+background:#000;
+}
+
+.video-label{
+font-size:12px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#999;
+margin-top:10px;
+font-weight:700;
+}
+
+.closing{
+margin-top:70px;
+padding-top:34px;
+border-top:1px solid #eee;
+color:#666;
+}
+
+.footer{
+text-align:center;
+padding:40px 20px;
+font-size:13px;
+color:#999;
+background:#fff;
+border-top:1px solid #eee;
+margin-top:60px;
+}
+
+@media(max-width:900px){
+.video-pair{grid-template-columns:1fr}
+.hero h1{font-size:48px}
+}
+</style>
+</head>
+<body>
+
+<div id="password-gate">
+<div class="gate-box">
+<div class="gate-logo">Made Known Pictures</div>
+<h2>Private Pitch Deck</h2>
+<p>This page is password protected.</p>
+<form id="pw-form">
+<input type="password" id="pw-input" placeholder="Enter password">
+<button type="submit">Enter</button>
+<div class="gate-error" id="pw-error">Incorrect password</div>
+</form>
+</div>
+</div>
+
+<div id="main-content">
+
+<section class="hero">
+<div class="hero-inner">
+
+<div class="hero-logo">
+<img src="images/de1634c74_logoicon.png">
+<span>MADE KNOWN</span>
+</div>
+
+<h1>
+Prepared for Brand USA.<br>
+<em>Selected Storytelling Samples.</em>
+</h1>
+
+<p>Destination content, human stories, cinematic commercials, and emotionally resonant documentary work.</p>
+
+<a href="#samples" class="hero-btn">View Samples</a>
+
+</div>
+</section>
+
+<section class="wrap" id="samples">
+
+<div class="intro">
+<h2>Brand USA Work Samples</h2>
+<p>Seeking the most powerful stories within the assignment.</p>
+</div>
+
+<hr class="divider">
+<div class="sample">
+<div class="sample-label">Sample A</div>
+<div class="eyebrow">B2B Destination + Human Story</div>
+<h3>Two Stories, One Assignment, New York</h3>
+<p>Trade-facing destination content paired with a first-time traveler human story.</p>
+
+<div class="video-pair">
+<div>
+<div class="video-wrap">
+<iframe src="https://player.vimeo.com/video/132164108?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0"></iframe>
+</div>
+<div class="video-label">NYC Media Lunch</div>
+</div>
+
+<div>
+<div class="video-wrap">
+<iframe src="https://player.vimeo.com/video/109343274?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0"></iframe>
+</div>
+<div class="video-label">Fabian Paino</div>
+</div>
+</div>
+</div>
+
+<hr class="divider">
+<div class="sample">
+<div class="sample-label">Sample B</div>
+<div class="eyebrow">Lifestyle Commercial + Mini Documentary</div>
+<h3>Coffee Is Life · Nicaragua</h3>
+
+<div class="video-single">
+<div class="video-wrap">
+<iframe src="https://player.vimeo.com/video/221464315?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0"></iframe>
+</div>
+</div>
+</div>
+
+<hr class="divider">
+<div class="sample">
+<div class="sample-label">Sample C</div>
+<div class="eyebrow">Documentary / Social Impact</div>
+<h3>Andes in Motion</h3>
+
+<div class="video-pair">
+<div>
+<div class="video-wrap">
+<iframe src="https://www.youtube.com/embed/cRm2PmhNk_0?autoplay=1&mute=1&loop=1&playlist=cRm2PmhNk_0&controls=0&rel=0"></iframe>
+</div>
+<div class="video-label">Destination Footage</div>
+</div>
+
+<div>
+<div class="video-wrap">
+<iframe src="https://www.youtube.com/embed/B3wrnDvipnE?autoplay=1&mute=1&loop=1&playlist=B3wrnDvipnE&controls=0&rel=0"></iframe>
+</div>
+<div class="video-label">Explainer Film</div>
+</div>
+</div>
+</div>
+
+<hr class="divider">
+<div class="sample">
+<div class="sample-label">Sample D</div>
+<div class="eyebrow">Mini Documentary</div>
+<h3>Daisy, Peru</h3>
+
+<div class="video-single">
+<div class="video-wrap">
+<iframe src="https://player.vimeo.com/video/77809770?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0"></iframe>
+</div>
+</div>
+</div>
+
+<hr class="divider">
+<div class="sample">
+<div class="sample-label">Sample E</div>
+<div class="eyebrow">Commercial / Scripted Brand Spot</div>
+<h3>SideChef — step-by-step recipes with voice assistance</h3>
+
+<p>A fully produced commercial built from the ground up including writing, directing, producing, casting, crew management, location scouting, logistics, and final delivery.</p>
+
+<p>The project also included a custom music composer, helping give the finished piece a more distinctive branded feel.</p>
+
+<p>We are including this sample to show that our work is not limited to documentary storytelling.</p>
+
+<div class="note">
+<strong>Why We’re Sharing:</strong> It shows we can lead a full commercial production — from concept through final delivery.
+</div>
+
+<div class="video-single">
+<div class="video-wrap">
+<iframe src="https://player.vimeo.com/video/146186425?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0"></iframe>
+</div>
+<div class="video-label">Commercial Brand Spot</div>
+</div>
+</div>
+
+<div class="closing">
+<p>We hope you enjoy. Happy to provide more samples or visit https://madeknown.com</p>
+</div>
+
+</section>
+
+<footer class="footer">
+Made Known Pictures © 2026 · https://madeknown.com
+</footer>
+
+</div>
+
+<script>
+(function(){
+var CORRECT='USA';
+var gate=document.getElementById('password-gate');
+var main=document.getElementById('main-content');
+var form=document.getElementById('pw-form');
+var input=document.getElementById('pw-input');
+var err=document.getElementById('pw-error');
+
+function unlock(){
+gate.style.display='none';
+main.style.display='block';
+sessionStorage.setItem('brandusa_auth','1');
+}
+
+if(sessionStorage.getItem('brandusa_auth')==='1'){unlock();}
+
+form.addEventListener('submit',function(e){
+e.preventDefault();
+if(input.value===CORRECT){unlock();}
+else{
+err.style.display='block';
+input.value='';
+}
+});
+})();
+</script>
+
+</body>
+</html>
