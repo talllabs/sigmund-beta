@@ -3,31 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DARWIN | AI Wins Library</title>
+<title>DARWIN | The Sigmund Project</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-
 body{
 font-family:Inter,Arial,sans-serif;
-background:#07111f;
+background:#08111f;
 color:#fff;
 line-height:1.45;
 overflow-x:hidden;
 }
-
 a{text-decoration:none;color:inherit}
-.container{max-width:1440px;margin:auto;padding:0 24px}
+.container{max-width:1420px;margin:auto;padding:0 24px}
 
 body:before{
 content:"";
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at 10% 20%,rgba(255,200,0,.15),transparent 28%),
-radial-gradient(circle at 85% 20%,rgba(0,153,255,.14),transparent 30%),
-radial-gradient(circle at 50% 80%,rgba(0,255,170,.09),transparent 28%);
+radial-gradient(circle at 15% 20%,rgba(255,193,7,.14),transparent 28%),
+radial-gradient(circle at 85% 25%,rgba(0,153,255,.14),transparent 28%),
+radial-gradient(circle at 50% 80%,rgba(0,255,170,.08),transparent 30%);
 z-index:-1;
 }
 
@@ -60,11 +57,11 @@ margin-top:2px;
 }
 .menu{
 display:flex;
-gap:26px;
+gap:28px;
 font-weight:700;
 opacity:.85;
 }
-.btn-mini{
+.nav-btn{
 padding:12px 18px;
 border-radius:999px;
 background:linear-gradient(90deg,#ffd54a,#ffb300);
@@ -74,7 +71,7 @@ font-weight:900;
 
 /* hero */
 .hero{
-padding:95px 0 70px;
+padding:100px 0 80px;
 text-align:center;
 }
 .kicker{
@@ -88,11 +85,11 @@ letter-spacing:1px;
 margin-bottom:18px;
 }
 .hero h1{
-font-size:102px;
+font-size:104px;
 line-height:.88;
 font-weight:900;
 letter-spacing:-5px;
-background:linear-gradient(90deg,#fff,#ffd54a,#79e6ff);
+background:linear-gradient(90deg,#fff,#ffd54a,#76e6ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
@@ -103,12 +100,12 @@ font-weight:800;
 }
 .hero p{
 font-size:22px;
-max-width:920px;
+max-width:940px;
 margin:24px auto 0;
 color:#d2dcec;
 }
 .cta{
-margin-top:32px;
+margin-top:34px;
 display:flex;
 justify-content:center;
 gap:14px;
@@ -127,24 +124,24 @@ background:linear-gradient(90deg,#ffd54a,#ffb300);
 color:#111;
 }
 .ghost{
+border:1px solid rgba(255,255,255,.14);
 background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.12);
 }
 
-/* sections */
-.section{padding:60px 0}
+/* section */
+.section{padding:64px 0}
 .section h3{
 font-size:56px;
-line-height:1;
 font-weight:900;
+line-height:1;
 letter-spacing:-2px;
-margin-bottom:12px;
+margin-bottom:14px;
 }
 .lead{
 font-size:22px;
-color:#b8c7da;
-max-width:920px;
-margin-bottom:26px;
+color:#b7c7db;
+max-width:900px;
+margin-bottom:28px;
 }
 
 /* stats */
@@ -172,25 +169,10 @@ font-weight:700;
 opacity:.8;
 }
 
-/* categories */
-.pills{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:16px;
-}
-.pill{
-padding:10px 14px;
-border-radius:999px;
-background:rgba(255,255,255,.06);
-font-size:13px;
-font-weight:800;
-}
-
 /* cards */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:22px;
 }
 .card{
@@ -199,7 +181,6 @@ border:1px solid rgba(255,255,255,.08);
 border-radius:24px;
 padding:26px;
 transition:.25s ease;
-box-shadow:0 14px 40px rgba(0,0,0,.18);
 }
 .card:hover{
 transform:translateY(-6px);
@@ -209,31 +190,21 @@ border-color:rgba(255,213,74,.35);
 display:inline-block;
 padding:8px 12px;
 border-radius:999px;
-background:rgba(255,213,74,.12);
-color:#ffd54a;
 font-size:12px;
 font-weight:900;
+background:rgba(255,213,74,.12);
+color:#ffd54a;
 margin-bottom:14px;
 }
 .card h4{
 font-size:28px;
 line-height:1.08;
+margin-bottom:12px;
+}
+.card p{
+font-size:15px;
+color:#cad5e5;
 margin-bottom:14px;
-}
-.meta{
-font-size:14px;
-color:#b8c7da;
-margin-bottom:10px;
-font-weight:700;
-}
-.label{
-font-size:12px;
-font-weight:900;
-opacity:.7;
-margin-top:12px;
-margin-bottom:6px;
-text-transform:uppercase;
-letter-spacing:1px;
 }
 .tags{
 display:flex;
@@ -246,35 +217,6 @@ border-radius:999px;
 font-size:12px;
 font-weight:800;
 background:rgba(255,255,255,.08);
-}
-.result{
-margin-top:14px;
-padding:14px;
-border-radius:14px;
-background:rgba(0,255,170,.08);
-border-left:3px solid #00ffaa;
-font-size:14px;
-font-weight:700;
-}
-
-/* form */
-.form{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-border-radius:26px;
-padding:34px;
-}
-.steps{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:14px;
-margin-top:18px;
-}
-.step{
-padding:18px;
-border-radius:16px;
-background:rgba(255,255,255,.05);
-font-weight:700;
 }
 
 /* quote */
@@ -297,7 +239,7 @@ footer{
 padding:50px 0 80px;
 text-align:center;
 font-size:14px;
-color:#8ea0b7;
+color:#8fa1b9;
 }
 
 /* mobile */
@@ -311,7 +253,7 @@ color:#8ea0b7;
 .hero h2{font-size:24px}
 .hero p,.lead{font-size:18px}
 .section h3{font-size:38px}
-.stats,.steps{grid-template-columns:1fr}
+.stats{grid-template-columns:1fr}
 .quote h3{font-size:38px}
 }
 </style>
@@ -331,27 +273,25 @@ color:#8ea0b7;
 <a href="#">Community</a>
 </div>
 
-<a href="#" class="btn-mini">Submit Win</a>
+<a href="#" class="nav-btn">Submit Win</a>
 </div>
 </nav>
 
 <section class="hero">
 <div class="container">
 
-<div class="kicker">RECURRING CONTENT • SEO • COMMUNITY</div>
+<div class="kicker">NEW COMMUNITY PROJECT</div>
 
 <h1>DARWIN</h1>
-<h2>AI Wins Library</h2>
+<h2>Real Wins. Real Tools. Real Progress.</h2>
 
 <p>
-Real people using AI practically. Discover how businesses,
-students, creators, and tourism leaders are saving time,
-making money, and adapting faster.
+See how tourism, business, education, and entrepreneurship are adapting faster with smarter tools, automation, and better systems.
 </p>
 
 <div class="cta">
-<a href="#" class="btn gold">Submit Your AI Win</a>
-<a href="#" class="btn ghost">Browse Wins</a>
+<a href="#" class="btn gold">Share Your Win</a>
+<a href="#" class="btn ghost">Browse Stories</a>
 </div>
 
 </div>
@@ -360,14 +300,14 @@ making money, and adapting faster.
 <section class="section">
 <div class="container">
 
-<h3>Community Impact</h3>
-<p class="lead">Proof that practical AI adoption creates momentum.</p>
+<h3>Community Momentum</h3>
+<p class="lead">Fresh examples added regularly. Practical results people can learn from.</p>
 
 <div class="stats">
-<div class="stat"><strong>2,486</strong><span>Hours Saved</span></div>
-<div class="stat"><strong>$182k</strong><span>Revenue Reported</span></div>
 <div class="stat"><strong>127</strong><span>Wins Shared</span></div>
+<div class="stat"><strong>2,486</strong><span>Hours Saved</span></div>
 <div class="stat"><strong>22</strong><span>Countries</span></div>
+<div class="stat"><strong>$182k</strong><span>Revenue Reported</span></div>
 </div>
 
 </div>
@@ -376,209 +316,70 @@ making money, and adapting faster.
 <section class="section">
 <div class="container">
 
-<h3>Browse By Category</h3>
-<p class="lead">Find ideas relevant to your world.</p>
-
-<div class="pills">
-<span class="pill">Tourism</span>
-<span class="pill">Hotels</span>
-<span class="pill">Agencies</span>
-<span class="pill">Students</span>
-<span class="pill">Creators</span>
-<span class="pill">Small Business</span>
-<span class="pill">Marketing</span>
-<span class="pill">Operations</span>
-<span class="pill">Sales</span>
-<span class="pill">Websites</span>
-<span class="pill">Automation</span>
-</div>
-
-</div>
-</section>
-
-<section class="section">
-<div class="container">
-
-<h3>Featured Wins</h3>
-<p class="lead">
-Every story includes what they do, problem solved, tools used,
-time saved, revenue gained, prompt used, and advice to others.
-</p>
+<h3>Popular Categories</h3>
+<p class="lead">Browse ideas that match your world.</p>
 
 <div class="grid">
 
 <div class="card">
 <div class="badge">Tourism</div>
-<h4>Peru Tour Operator</h4>
-<div class="meta">What they do: Adventure travel bookings</div>
-
-<div class="label">Problem</div>
-<p>Slow replies to inbound leads were losing bookings.</p>
-
-<div class="label">Tools Used</div>
+<h4>Tour Operators & DMOs</h4>
+<p>Bookings, proposals, itinerary creation, customer service, outreach.</p>
 <div class="tags">
-<span class="tag">ChatGPT</span>
-<span class="tag">WhatsApp</span>
-<span class="tag">Gmail</span>
+<span class="tag">Sales</span>
+<span class="tag">Marketing</span>
+<span class="tag">Operations</span>
 </div>
-
-<div class="label">Prompt Used</div>
-<p>Write warm sales replies for Peru tours using our tone.</p>
-
-<div class="result">8 hrs saved weekly • +22% bookings</div>
-
-<div class="label">Advice</div>
-<p>Train AI on your tone first.</p>
-</div>
-
-<div class="card">
-<div class="badge">Agency</div>
-<h4>Australia Marketing Studio</h4>
-<div class="meta">What they do: Client proposals + campaigns</div>
-
-<div class="label">Problem</div>
-<p>Too much time rewriting proposals from scratch.</p>
-
-<div class="label">Tools Used</div>
-<div class="tags">
-<span class="tag">Claude</span>
-<span class="tag">Canva</span>
-<span class="tag">Docs</span>
-</div>
-
-<div class="label">Prompt Used</div>
-<p>Turn this brief into a premium proposal with pricing options.</p>
-
-<div class="result">6 hrs saved weekly • Faster close rate</div>
-
-<div class="label">Advice</div>
-<p>Keep reusable templates ready.</p>
 </div>
 
 <div class="card">
 <div class="badge">Hotels</div>
-<h4>Boutique Hotel Group</h4>
-<div class="meta">What they do: Guest communications</div>
-
-<div class="label">Problem</div>
-<p>Slow multilingual responses across email and chat.</p>
-
-<div class="label">Tools Used</div>
+<h4>Hospitality Wins</h4>
+<p>Guest messaging, multilingual support, reviews, upsells, staffing efficiency.</p>
 <div class="tags">
-<span class="tag">Gemini</span>
-<span class="tag">WhatsApp</span>
-<span class="tag">Email</span>
+<span class="tag">Guest Experience</span>
+<span class="tag">Automation</span>
+</div>
 </div>
 
-<div class="label">Prompt Used</div>
-<p>Translate and answer politely in guest language.</p>
-
-<div class="result">4 hrs saved daily • Better reviews</div>
-
-<div class="label">Advice</div>
-<p>Always human-check sensitive messages.</p>
+<div class="card">
+<div class="badge">Agencies</div>
+<h4>Client Growth</h4>
+<p>Proposal writing, content production, reporting, design workflows.</p>
+<div class="tags">
+<span class="tag">Creative</span>
+<span class="tag">Productivity</span>
+</div>
 </div>
 
 <div class="card">
 <div class="badge">Students</div>
-<h4>University Founder</h4>
-<div class="meta">What they do: Startup pitch competitions</div>
-
-<div class="label">Problem</div>
-<p>Needed investor deck fast.</p>
-
-<div class="label">Tools Used</div>
+<h4>Launch Faster</h4>
+<p>Pitch decks, startup ideas, resumes, websites, research.</p>
 <div class="tags">
-<span class="tag">ChatGPT</span>
-<span class="tag">Canva</span>
-<span class="tag">Gamma</span>
+<span class="tag">Career</span>
+<span class="tag">Startup</span>
 </div>
-
-<div class="label">Prompt Used</div>
-<p>Create a 10-slide investor story from this idea.</p>
-
-<div class="result">Deck built in 1 afternoon</div>
-
-<div class="label">Advice</div>
-<p>Use AI for drafting, you refine story.</p>
 </div>
 
 <div class="card">
 <div class="badge">Creators</div>
-<h4>Solo Creator</h4>
-<div class="meta">What they do: Weekly content production</div>
-
-<div class="label">Problem</div>
-<p>Could not keep up with posting schedule.</p>
-
-<div class="label">Tools Used</div>
+<h4>Content Systems</h4>
+<p>Video ideas, scripts, captions, monthly planning, audience growth.</p>
 <div class="tags">
-<span class="tag">ChatGPT</span>
-<span class="tag">CapCut</span>
-<span class="tag">Canva</span>
+<span class="tag">Social</span>
+<span class="tag">Video</span>
 </div>
-
-<div class="label">Prompt Used</div>
-<p>Give me 30 short-form content ideas from my niche.</p>
-
-<div class="result">3x content output</div>
-
-<div class="label">Advice</div>
-<p>Batch one month at a time.</p>
 </div>
 
 <div class="card">
 <div class="badge">Small Business</div>
-<h4>Local Services Company</h4>
-<div class="meta">What they do: Lead generation</div>
-
-<div class="label">Problem</div>
-<p>No website and poor credibility online.</p>
-
-<div class="label">Tools Used</div>
+<h4>Do More With Less</h4>
+<p>Websites, lead generation, admin automation, customer support.</p>
 <div class="tags">
-<span class="tag">Claude Code</span>
-<span class="tag">GitHub</span>
-<span class="tag">Vercel</span>
+<span class="tag">Website</span>
+<span class="tag">Leads</span>
 </div>
-
-<div class="label">Prompt Used</div>
-<p>Build a modern website with quote form and SEO pages.</p>
-
-<div class="result">Live in 2 days • Leads increased</div>
-
-<div class="label">Advice</div>
-<p>Ship version one quickly.</p>
-</div>
-
-</div>
-
-</div>
-</section>
-
-<section class="section">
-<div class="container">
-
-<h3>Submit Your AI Win</h3>
-<p class="lead">Super easy. We turn submissions into polished case studies.</p>
-
-<div class="form">
-
-<div class="steps">
-<div class="step">1. What you do</div>
-<div class="step">2. Your company name</div>
-<div class="step">3. Website</div>
-<div class="step">4. Problem you faced</div>
-<div class="step">5. AI tools used</div>
-<div class="step">6. Time saved</div>
-<div class="step">7. Revenue gained</div>
-<div class="step">8. Prompt used</div>
-<div class="step">9. Advice to others</div>
-<div class="step">10. Optional logo / image</div>
-</div>
-
-<div class="cta" style="justify-content:flex-start">
-<a href="#" class="btn gold">Submit Win</a>
 </div>
 
 </div>
@@ -592,9 +393,26 @@ time saved, revenue gained, prompt used, and advice to others.
 </div>
 </section>
 
+<section class="section">
+<div class="container" style="text-align:center">
+
+<h3>Share Your Win</h3>
+<p class="lead" style="margin:auto auto 28px">
+Tell us what you used, what problem it solved, and what happened next.
+We turn it into a polished story.
+</p>
+
+<div class="cta">
+<a href="#" class="btn gold">Submit Story</a>
+<a href="#" class="btn ghost">Browse Wins</a>
+</div>
+
+</div>
+</section>
+
 <footer>
 <div class="container">
-TheSigmundProject.org/Darwin · AI Wins Library · Share your win. Learn from others.
+TheSigmundProject.org/Darwin · Real Wins. Real Tools. Real Progress.
 </div>
 </footer>
 
