@@ -31,8 +31,9 @@ authorization are sorted out separately.
    `SUPABASE_SERVICE_ROLE_KEY` (Project Settings → API). The service role key
    is required because inserts/updates bypass row-level security — keep it
    server-side only, never ship it to a browser.
-4. Set `DEMANDSTAR_SEED_URLS` to the public "Browse Awarded Bids" listing
-   page(s) you want crawled (comma-separated for multiple agencies/categories).
+4. Set `DEMANDSTAR_SEED_BID_IDS` to the DemandStar bid IDs you want to fetch
+   (comma-separated). Bid search/listing discovery isn't wired up yet — see
+   Known limitations.
 
 ## Running
 
@@ -43,19 +44,34 @@ npm run scrape
 Run it on a schedule (cron, GitHub Actions, Supabase Edge Function cron,
 etc.) — it's idempotent, so re-running just refreshes changed records.
 
+## How the DemandStar adapter actually works
+
+`demandstar.com/app/limited/bids/{id}/details` is a client-rendered React SPA
+— the server HTML is an empty shell, so scraping it as static HTML doesn't
+work. Verified via browser DevTools against a real bid page, the SPA itself
+calls two public JSON endpoints on `api.demandstar.com`:
+
+- `POST /contents/agency/summary` with `{"bidId": <id>}` → agency name, bid
+  number/type, dates, scope of work, `bidExternalStatus` (e.g. `"Awarded"`).
+- `POST /contents/agency/awards` with `{"bidId": <id>}` → array of
+  `{supplierName, amount}` — the actual award data.
+
+The adapter (`src/adapters/demandstar.ts`) calls both directly and only
+stores a record when `bidExternalStatus === "Awarded"` and at least one award
+line item comes back. No login, no cookies, no scraping of rendered HTML —
+just the same public API calls the browser makes.
+
 ## Known limitations / next steps
 
-- **DemandStar selector robustness**: the adapter locates fields by matching
-  visible label text ("Agency Name", "Awarded To", etc.) rather than hard-coded
-  CSS selectors, since the exact DOM wasn't verified against a live fetch in
-  this environment. Run it against a real listing page early and adjust
-  `src/adapters/demandstar.ts` if any field comes back empty.
-- **Discovery**: DemandStar doesn't expose a stable public search API, so
-  discovery starts from configured listing-page seeds and follows "Next"
-  pagination links. If a given agency's awarded-bids listing itself requires
-  login, that agency's bids won't be reachable in this public-only mode.
+- **Discovery is manual for now**: there's no captured endpoint yet for
+  DemandStar's bid search/listing (i.e. "give me all recently awarded bid
+  IDs"). `DEMANDSTAR_SEED_BID_IDS` requires supplying bid IDs by hand. Finding
+  the listing/search API the same way `/summary` and `/awards` were found
+  (DevTools → Network while browsing "Browse Awarded Bids") is the next step
+  to make this self-sufficient.
 - **Additional sources**: add adapters for the other ~9 portals (BidNet
   Direct, PlanetBids, OpenGov Procurement, Bonfire, Vendor Registry, etc.)
-  following the same `AwardSourceAdapter` interface.
+  following the same `AwardSourceAdapter` interface. Check each for a public
+  JSON API the same way before assuming HTML scraping is needed.
 - **Scheduling**: no scheduler is wired up yet — pick one (GitHub Actions cron
   is simplest if this repo lives on GitHub).
