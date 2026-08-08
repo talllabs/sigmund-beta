@@ -1,0 +1,26 @@
+{
+  "name": "award-scraper",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Scrapes government bid/RFP award results (winner, amount, agency) from public procurement portals and stores them in Supabase for Sigmund RFP Hub.",
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "scrape": "tsx src/index.ts run",
+    "lint": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "p-limit": "^6.1.0",
+    "undici": "^6.19.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "tsx": "^4.19.1",
+    "typescript": "^5.5.4"
+  }
+}
